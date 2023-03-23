@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdoi.h>
+#include <stdio.h>
 
 /**
  * print_to_98 - function to print natural numbers
