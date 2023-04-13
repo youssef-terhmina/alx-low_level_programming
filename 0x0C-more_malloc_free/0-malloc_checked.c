@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include "main.h"
 
 /**
  * malloc_checked - allocates memory using malloc
@@ -12,10 +11,10 @@
 
 void *malloc_checked(unsigned int b)
 {
-	void *ptr;
+	void *new_mem;
 
-	ptr = malloc(b);
-	if (ptr == NULL)
+	new_mem = malloc(b);
+	if (new_mem == NULL)
 		exit(98);
-	return (ptr);
+	return (new_mem);
 }
