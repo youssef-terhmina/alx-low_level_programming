@@ -4,9 +4,6 @@
 #include <fcntl.h>
 #include "main.h"
 
-#define READ_ERR "Error: Can't read from file %s\n"
-#define WRITE_ERR "Error: Can't write to %s\n"
-
 /**
  * main - check the code for Holberton School students.
  * @argc: number of arguments
@@ -17,7 +14,7 @@
 int main(int argc, char **argv)
 {
 	int frm, to, on_close, w, r;
-	char buf[1024];
+	char buffer[1024];
 
 	if (argc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
@@ -29,12 +26,12 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
 	while (1)
 	{
-		r = read(frm, buf, 1024);
+		r = read(frm, buffer, 1024);
 		if (r == -1)
 			dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
 		if (r > 0)
 		{
-			w = write(to, buf, r);
+			w = write(to, buffer, r);
 			if (w == -1)
 				dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
 		} else
